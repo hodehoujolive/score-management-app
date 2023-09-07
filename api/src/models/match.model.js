@@ -6,10 +6,12 @@ const matchSchema = mongoose.Schema(
     host: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: 'Team'
     },
     guest: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: 'Team'
     },
     hostGoals: {
       type: Number,
@@ -18,10 +20,6 @@ const matchSchema = mongoose.Schema(
     guestGoals: {
       type: Number,
       default: 0,
-    },
-    matchDate: {
-      type: Date,
-      default: null,
     },
   },
   {

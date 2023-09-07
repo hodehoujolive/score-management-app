@@ -11,19 +11,19 @@ const ApiError = require('../utils/ApiError');
 const createMatch = async (matchBody) => {
   const match = await Match.create(matchBody);
   
-  if(matchBody.hostGoals === matchBody.guestGoals) {
+  if(Number(matchBody.hostGoals) === Number(matchBody.guestGoals)) {
     await Team.updateMany({
       _id: {
-        $in: [mongoose.Types.ObjectId(host), mongoose.Types.ObjectId(guest)]
+        $in: [mongoose.Types.ObjectId(matchBody.host), mongoose.Types.ObjectId(matchBody.guest)]
       }
     }, {
       $inc: {
         points: 1
       }
     })
-  } else if (matchBody.hostGoals > matchBody.guestGoals) {
+  } else if (Number(matchBody.hostGoals) > Number(matchBody.guestGoals)) {
     await Team.updateOne({
-      _id: mongoose.Types.ObjectId(host)
+      _id: mongoose.Types.ObjectId(matchBody.host)
     }, {
       $inc: {
         points: 3
@@ -31,7 +31,7 @@ const createMatch = async (matchBody) => {
     })
   } else {
     await Team.updateOne({
-      _id: mongoose.Types.ObjectId(guest)
+      _id: mongoose.Types.ObjectId(matchBody.guest)
     }, {
       $inc: {
         points: 3
@@ -52,6 +52,7 @@ const createMatch = async (matchBody) => {
  * @returns {Promise<QueryResult>}
  */
 const queryMatchs = async (filter, options) => {
+  options.populate = 'guest.Team,host.Team';
   const matchs = await Match.paginate(filter, options);
   return matchs;
 };

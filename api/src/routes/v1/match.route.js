@@ -8,8 +8,8 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageMatchs'), validate(matchValidation.createMatch), matchController.createMatch)
-  .get(auth('getMatchs'), validate(matchValidation.getMatchs), matchController.getMatchs);
+  .post(validate(matchValidation.createMatch), matchController.createMatch)
+  .get(validate(matchValidation.getMatchs), matchController.getMatchs);
 
 router
   .route('/:matchId')
