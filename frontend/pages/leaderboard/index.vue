@@ -41,8 +41,8 @@
 
 <script>
 export default {
-	name: 'ProfileIndex',
-	layout: 'default',
+	name: 'LeaderboardIndex',
+	layout: 'dashboard',
 	data () {
 		return {
         teams: []

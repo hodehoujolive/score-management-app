@@ -1,4 +1,4 @@
-const APP_NAME = "Nuxt Auth"
+const APP_NAME = "Score Management App"
 
 export default {
 	app: {
