@@ -12,7 +12,7 @@ The main objective of this project is to develop a score management application 
 - [x] Design an intuitive and attractive user interface for the score management application.
 - [x] Implement functionality to enter and record scores of matches between the Alpha, Beta, Gamma, and Omega teams.
 - [x] Display an updated real-time leaderboard, showing the position of each team based on their score.
-- [ ] Allow users to view details of previous matches, including individual team scores and player information.
+- [x] Allow users to view details of previous matches, including individual team scores and player information.
 - [x] Ensure data security by implementing appropriate protection measures to prevent any manipulation or alteration of scores.
 
 ### SHOULD
