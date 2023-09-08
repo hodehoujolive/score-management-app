@@ -3,10 +3,17 @@
 		<v-container>
 			<div class="d-flex justify-space-between">
 				<h1 class="display-1 font-weight-light">
-					Teams
+					Matchs Details
 				</h1>
 
-				<CreateTeam v-if="$auth.user" />
+				<v-btn
+        v-if="$auth.user"
+                    color="blue darken-1"
+                    text
+                    @click="$router.push('/matchs/create')"
+                    >
+                    Create Match
+                    </v-btn>
 			</div>
 			<div>
 				<v-simple-table>
@@ -14,16 +21,24 @@
       <thead>
         <tr>
           <th class="text-left">
-            Name
+            Host
+          </th>
+          <th class="text-left">
+            Points
+          </th>
+          <th class="text-left">
+            Guest
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="(item) in teams"
-          :key="item.name"
+          v-for="(item, i) in matchs"
+          :key="i"
         >
-          <td>{{ item.name }}</td>
+          <td>{{ item.host.name }}</td>
+          <td>{{ item.hostGoals }} - {{ item.guestGoals }}</td>
+          <td>{{ item.guest.name }}</td>
         </tr>
       </tbody>
     </template>
@@ -35,17 +50,17 @@
 
 <script>
 export default {
-	name: 'TeamsIndex',
+	name: 'matchPage',
 	layout: 'dashboard',
 	data () {
 		return {
-        teams: []
+        matchs: []
       }
     },
     async fetch() {
         try {
-            const teams = await this.$axios.get('/teams', this.form);
-            this.teams = teams.data.results;
+            const d = await this.$axios.get('/matchs');
+            this.matchs = d.data.results;
         } catch (error) {
 			console.log(error)
         }

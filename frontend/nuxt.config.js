@@ -3,7 +3,6 @@ import themeConfig from './config/themeConfig'
 import authConfig from './config/authConfig'
 import axiosConfig from './config/axiosConfig'
 import buildConfig from './config/buildConfig'
-import routerConfig from './config/routerConfig'
 
 export default {
 	loading: { color: '#ff5252', height: '3px' },
@@ -33,6 +32,7 @@ export default {
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
 		'@nuxtjs/auth-next',
+		'vue-social-sharing/nuxt'
 	],
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios

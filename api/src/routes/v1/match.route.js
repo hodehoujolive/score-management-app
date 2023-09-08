@@ -9,7 +9,7 @@ const router = express.Router();
 router
   .route('/')
   .post(auth('manageMatchs'), validate(matchValidation.createMatch), matchController.createMatch)
-  .get(auth('getMatchs'), validate(matchValidation.getMatchs), matchController.getMatchs);
+  .get(validate(matchValidation.getMatchs), matchController.getMatchs);
 
 router
   .route('/:matchId')

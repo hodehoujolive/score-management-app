@@ -1,23 +1,19 @@
 <template>
 	<v-container fill-height fluid>
 		<v-row align="center" justify="center">
-			<v-col cols="12" lg="3">
+			<v-col cols="12" lg="8">
 
 				<v-form :disabled="form.loading" @submit.prevent="save">
 					<v-card flat>
-						<v-card-title>Game</v-card-title>
+						<v-card-title>Match</v-card-title>
 
 						<v-card-text>
-							<v-alert
-								v-if="form.errors.has('error')"
-								type="error"
-								dismissible
-								>{{ form.errors.get('error') }}</v-alert
-							>
 
 							<v-select
-							:items="items"
 							v-model="form.data.host"
+							:items="teams"
+							item-text="name"
+							item-value="id"
 							label="Host"
 							outlined
 							></v-select>
@@ -34,16 +30,18 @@
 							<v-card-actions
 								class="d-flex flex-column justify-center"
 							>
-								<div class="my-3 text--disabled">VS</div>
+								<div class="mt-3 mb-5 text--disabled">VS</div>
 							</v-card-actions>
 
-
 							<v-select
-							:items="items"
 							v-model="form.data.guest"
+							:items="teams"
+							item-text="name"
+							item-value="id"
 							label="Guest"
 							outlined
-							></v-select>
+							>
+						</v-select>
 
 							<!-- Field: Password -->
 							<v-text-field
@@ -76,11 +74,13 @@
 import Errors from '~/helpers/Errors'
 
 export default {
-	name: 'AuthLogin',
+	name: 'createMatch',
 	auth: 'guest',
+	layout: 'dashboard',
 	data: () => {
 		return {
 			showPassword: false,
+			teams: [],
 			form: {
 				loading: false,
 				errors: new Errors(),
@@ -97,25 +97,31 @@ export default {
 			},
 		}
 	},
+	async fetch() {
+		try {
+			const teams = await this.$axios.get('/teams');
+			this.teams = teams.data.results
+		} catch (err) {
+			this.form.errors.record(err.response.data)
+		}
+	},
 	head: () => {
 		return {
 			title: 'Log In',
 		}
 	},
-
 	methods: {
-		userLogin() {
-			this.loadingStart()
-
-			this.$auth
-				.loginWith('local', {
-					data: this.form.data,
-				})
-				.catch((err) => {
-					console.log(err)
-					this.form.errors.record(err.response.data)
-					this.loadingStop()
-				})
+		async save() {
+			try {
+				this.loadingStart();
+				const teams = await this.$axios.post('/matchs', this.form.data);
+				this.teams = teams.data.results;
+				this.$router.push('/leaderboard')
+			} catch (err) {
+				this.form.errors.record(err.response.data)
+				
+				this.loadingStop();
+			}
 		},
 
 		loadingStart() {

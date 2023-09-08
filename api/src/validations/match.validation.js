@@ -7,7 +7,6 @@ const createMatch = {
     guest: Joi.string().custom(objectId),
     hostGoals: Joi.number().integer(),
     guestGoals: Joi.number().integer(),
-    matchDate: Joi.string().required(),
   }),
 };
 
@@ -17,7 +16,7 @@ const getMatchs = {
     guest: Joi.string().custom(objectId),
     hostGoals: Joi.number().integer(),
     guestGoals: Joi.number().integer(),
-    matchDate: Joi.string().required(),
+    matchDate: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
