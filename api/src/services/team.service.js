@@ -43,6 +43,7 @@ const createTeam = async (teamBody) => {
  * @returns {Promise<QueryResult>}
  */
 const queryTeams = async (filter, options) => {
+  options.populate = 'teamMembers.Player';
   const teams = await Team.paginate(filter, options);
   return teams;
 };

@@ -15,6 +15,20 @@
                     Create Match
                     </v-btn>
 			</div>
+      <div class="d-flex justify-space-between">
+        <h1></h1>
+        <div>
+          <v-btn @click="exportData(exportFromJSON.types.csv)">
+            Export CSV
+          </v-btn>
+          <v-btn @click="exportData(exportFromJSON.types.xml)">
+            Export XML
+          </v-btn>
+          <v-btn @click="exportData(exportFromJSON.types.html)">
+            Export HTML
+          </v-btn>
+        </div>
+			</div>
 			<div>
 				<v-simple-table>
     <template v-slot:default>
@@ -49,12 +63,14 @@
 </template>
 
 <script>
+// import exportFromJSON from 'export-from-json'
 export default {
 	name: 'matchPage',
 	layout: 'dashboard',
 	data () {
 		return {
-        matchs: []
+        matchs: [],
+        // exportFromJSON
       }
     },
     async fetch() {
@@ -70,7 +86,19 @@ export default {
 		titleTemplate() {
 			return `Teams`
 		},
-	})
+	}),
+    methods: {
+    exportData (type) {
+      // const fileName = 'download'
+      // const data = this.matchs.map(p => {
+      //   delete p.guest.id
+      //   delete p.host.id
+      //   delete p.id;
+      //   return p
+      // })
+      // exportFromJSON({ data, fileName, exportType: type })
+    },
+    }
 }
 </script>
 
