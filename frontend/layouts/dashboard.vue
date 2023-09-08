@@ -85,7 +85,7 @@ export default {
 				{
 					icon: 'mdi-apps',
 					title: 'Leaderboard',
-					to: '/leaderboard',
+					to: '/',
 				},
 				{
 					icon: 'mdi-chart-bubble',
