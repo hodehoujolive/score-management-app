@@ -9,7 +9,6 @@
 						<v-card-subtitle
 							>Get access to your account.</v-card-subtitle
 						>
-						{{ $auth.user }}
 
 						<v-card-text>
 							<v-alert
@@ -98,7 +97,7 @@ export default {
 					data: this.form.data,
 				})
 				this.$auth.setUser(res.data.user);
-				this.$router.push('/leaderboard')
+				this.$router.push('/')
 			} catch(err) {
 				this.form.errors.record(err.response.data)
 				this.loadingStop()
