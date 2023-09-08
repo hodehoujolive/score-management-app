@@ -9,7 +9,7 @@ const router = express.Router();
 router
   .route('/')
   // .post(auth('manageTeams'), validate(teamValidation.createTeam), teamController.createTeam)
-  .post(validate(teamValidation.createTeam), teamController.createTeam)
+  .post(auth('manageTeams'), validate(teamValidation.createTeam), teamController.createTeam)
   // .get(auth('getTeams'), validate(teamValidation.getTeams), teamController.getTeams);
   .get(validate(teamValidation.getTeams), teamController.getTeams);
 

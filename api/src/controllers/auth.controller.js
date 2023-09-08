@@ -15,6 +15,11 @@ const login = catchAsync(async (req, res) => {
   res.send({ user, tokens });
 });
 
+
+const me = catchAsync(async (req, res) => {
+  res.send({ user: req.user });
+});
+
 const logout = catchAsync(async (req, res) => {
   await authService.logout(req.body.refreshToken);
   res.status(httpStatus.NO_CONTENT).send();
@@ -56,4 +61,5 @@ module.exports = {
   resetPassword,
   sendVerificationEmail,
   verifyEmail,
+  me,
 };
