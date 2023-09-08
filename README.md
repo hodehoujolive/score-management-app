@@ -16,16 +16,16 @@ https://drive.google.com/file/d/10LqbDhWbAjCb_4ppjhXdj41PwVxkqHfb/view?usp=shari
 - [x] Design an intuitive and attractive user interface for the score management application.
 - [x] Implement functionality to enter and record scores of matches between the Alpha, Beta, Gamma, and Omega teams.
 - [x] Display an updated real-time leaderboard, showing the position of each team based on their score.
-- [ ] Allow users to view details of previous matches, including individual team scores and player information.
+- [x] Allow users to view details of previous matches, including individual team scores and player information.
 - [x] Ensure data security by implementing appropriate protection measures to prevent any manipulation or alteration of scores.
 
 ### SHOULD
 
-- [] Integrate real-time notification features to inform users of new results or changes in the lea- derboard.
-- [x] Allow users to share scores or match results on social media, promoting spectator engagement. 
-- [] Add a prediction feature where users can predict match results and accumulate points based on the accuracy of their predictions.
-- [] Integrate a team management system, allowing the addition or removal of teams, updating their information, and displaying their statistics.
-- [] Provide a report generation feature to export match data, scores, and rankings in various for- mats, such as PDF or CSV.
+- [ ] Integrate real-time notification features to inform users of new results or changes in the lea- derboard.
+- [ ] Allow users to share scores or match results on social media, promoting spectator engagement. 
+- [ ] Add a prediction feature where users can predict match results and accumulate points based on the accuracy of their predictions.
+- [ ] Integrate a team management system, allowing the addition or removal of teams, updating their information, and displaying their statistics.
+- [ ] Provide a report generation feature to export match data, scores, and rankings in various for- mats, such as PDF or CSV.
 
 ### Prerequisites
 
@@ -44,23 +44,40 @@ https://drive.google.com/file/d/10LqbDhWbAjCb_4ppjhXdj41PwVxkqHfb/view?usp=shari
 
 2. Navigate to the api directory and use npm to install dependencies
     ```
-    cd api/ & npm install
+    cd api/
+    ```
+    ```
+    npm install
     ```
     Then rename the .env.example file that is locate in the /api directory to .env
 3. Navigate to the frontend directory and use npm to install dependencies
     ```
-    cd frontend/ & npm install 
+    cd frontend/
+    ```
+    ```
+    npm install 
     ```
 
 ### Usage
 
 1. Use the followinsg command to start the dev server
     ```
-    cd api / & npm run dev
+    cd api/
+    ```
+    ```
+    npm run dev
     ```
     
-   ```
-    cd frontend / & npm run dev
+    ```
+    cd frontend/
+    ```
+    ```
+    npm run dev
     ```
 2. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
     http://localhost:3000/
+
+### Admin Credentials
+    email : admin@admin.com
+    password : Admin1234.
+
