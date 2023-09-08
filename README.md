@@ -43,22 +43,32 @@ The main objective of this project is to develop a score management application 
     cd api/
     ```
    ```
-    npm install
-    ```
+   npm install
+   ```
     Then rename the .env.example file that is locate in the /api directory to .env
 3. Navigate to the frontend directory and use npm to install dependencies
-    ```
-    cd frontend/
-    ```
    ```
-    npm install 
-    ```
+   cd frontend/
+   ```
+   ```
+   npm install 
+   ```
 
 ### Usage
 
 1. Use the followinsg commands to start the dev server
-    ```cd api/ ``` ```npm run dev```
+   ```
+   cd api/
+   ```
+   ```
+   npm run dev
+   ```
     
-    ```cd frontend/ ``` ```npm run dev```
-2. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
+   ```
+   cd frontend/
+   ```
+   ```
+   npm run dev
+   ```
+3. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
     http://localhost:3000/
