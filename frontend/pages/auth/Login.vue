@@ -97,6 +97,7 @@ export default {
 					data: this.form.data,
 				})
 				this.$auth.setUser(res.data.user);
+				this.$auth.strategy.token.set(res.data.tokens.access.token)
 				this.$router.push('/')
 			} catch(err) {
 				this.form.errors.record(err.response.data)

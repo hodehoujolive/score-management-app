@@ -5,6 +5,17 @@
 				<h1 class="display-1 font-weight-light">
 					LeaderBoard
 				</h1>
+        <!-- <div>
+          <v-btn @click="exportData(exportFromJSON.types.csv)">
+            Export CSV
+          </v-btn>
+          <v-btn @click="exportData(exportFromJSON.types.xml)">
+            Export XML
+          </v-btn>
+          <v-btn @click="exportData(exportFromJSON.types.html)">
+            Export HTML
+          </v-btn>
+        </div> -->
 			</div>
 			<div>
 				<v-simple-table>
@@ -65,6 +76,7 @@
 </template>
 
 <script>
+// import exportFromJSON from 'export-from-json'
 export default {
 	name: 'LeaderboardIndex',
 	layout: 'dashboard',
@@ -72,6 +84,7 @@ export default {
 		return {
         teams: [],
         interval: null,
+        // exportFromJSON,
         sharing: {
           url: 'https://score-management-app/leaderboard',
           title: 'Découvrez le leaderboard et les scores des matchs en cours et passés.',
@@ -115,6 +128,20 @@ export default {
     },
     beforeDestroy () {
       clearInterval(this.interval)
+    },
+    methods: {
+    exportData (type) {
+      // const fileName = 'download'
+      // const data = this.teams.map(p => {
+      //   p.teamMembers.map(r => {
+      //     delete r.id;
+      //     return r
+      //   })
+      //   delete p.id;
+      //   return p
+      // })
+      // exportFromJSON({ data, fileName, exportType: type })
+    },
     },
 	fetchOnServer: false
 }
