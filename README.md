@@ -12,16 +12,16 @@ The main objective of this project is to develop a score management application 
 - [x] Design an intuitive and attractive user interface for the score management application.
 - [x] Implement functionality to enter and record scores of matches between the Alpha, Beta, Gamma, and Omega teams.
 - [x] Display an updated real-time leaderboard, showing the position of each team based on their score.
-- [] Allow users to view details of previous matches, including individual team scores and player information.
+- [ ] Allow users to view details of previous matches, including individual team scores and player information.
 - [x] Ensure data security by implementing appropriate protection measures to prevent any manipulation or alteration of scores.
 
 ### SHOULD
 
-- [] Integrate real-time notification features to inform users of new results or changes in the lea- derboard.
+- [ ] Integrate real-time notification features to inform users of new results or changes in the lea- derboard.
 - [x] Allow users to share scores or match results on social media, promoting spectator engagement. 
-- [] Add a prediction feature where users can predict match results and accumulate points based on the accuracy of their predictions.
-- [] Integrate a team management system, allowing the addition or removal of teams, updating their information, and displaying their statistics.
-- [] Provide a report generation feature to export match data, scores, and rankings in various for- mats, such as PDF or CSV.
+- [ ] Add a prediction feature where users can predict match results and accumulate points based on the accuracy of their predictions.
+- [ ] Integrate a team management system, allowing the addition or removal of teams, updating their information, and displaying their statistics.
+- [ ] Provide a report generation feature to export match data, scores, and rankings in various for- mats, such as PDF or CSV.
 
 ### Prerequisites
 
@@ -40,23 +40,38 @@ The main objective of this project is to develop a score management application 
 
 2. Navigate to the api directory and use npm to install dependencies
     ```
-    cd api/ & npm install
+    cd api/
     ```
+   ```
+   npm install
+   ```
     Then rename the .env.example file that is locate in the /api directory to .env
 3. Navigate to the frontend directory and use npm to install dependencies
-    ```
-    cd frontend/ & npm install 
-    ```
+   ```
+   cd frontend/
+   ```
+   ```
+   npm install 
+   ```
 
 ### Usage
 
-1. Use the followinsg command to start the dev server
-    ```
-    cd api / & npm run dev
-    ```
+1. Use the followinsg commands to start the dev server
+   ```
+   cd api/
+   ```
+   ```
+   npm run dev
+   ```
     
    ```
-    cd frontend / & npm run dev
-    ```
-2. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
+   cd frontend/
+   ```
+   ```
+   npm run dev
+   ```
+3. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
     http://localhost:3000/
+### Note : Admin Credentials
+       Email : admin@admin.com
+       Password : Admin1234.
