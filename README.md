@@ -22,7 +22,7 @@ https://drive.google.com/file/d/10LqbDhWbAjCb_4ppjhXdj41PwVxkqHfb/view?usp=shari
 ### SHOULD
 
 - [ ] Integrate real-time notification features to inform users of new results or changes in the lea- derboard.
-- [ ] Allow users to share scores or match results on social media, promoting spectator engagement. 
+- [x] Allow users to share scores or match results on social media, promoting spectator engagement. 
 - [ ] Add a prediction feature where users can predict match results and accumulate points based on the accuracy of their predictions.
 - [ ] Integrate a team management system, allowing the addition or removal of teams, updating their information, and displaying their statistics.
 - [ ] Provide a report generation feature to export match data, scores, and rankings in various for- mats, such as PDF or CSV.
