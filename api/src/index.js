@@ -2,10 +2,19 @@ const mongoose = require('mongoose');
 const app = require('./app');
 const config = require('./config/config');
 const logger = require('./config/logger');
+const { userService } = require('./services');
 
 let server;
-mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
+mongoose.connect(config.mongoose.url, config.mongoose.options).then(async () => {
   logger.info('Connected to MongoDB');
+  let admin = await userService.getUserByEmail('admin@admin.com')
+  if(!admin) {
+    await userService.createUser({
+      email: 'admin@admin.com',
+      password: 'Admin1234.',
+      name: 'Admin'
+    });
+  }
   server = app.listen(config.port, () => {
     logger.info(`Listening to port ${config.port}`);
   });
