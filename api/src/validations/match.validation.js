@@ -14,6 +14,7 @@ const getMatchs = {
   query: Joi.object().keys({
     host: Joi.string().custom(objectId),
     guest: Joi.string().custom(objectId),
+    teamId: Joi.string().custom(objectId),
     hostGoals: Joi.number().integer(),
     guestGoals: Joi.number().integer(),
     matchDate: Joi.string(),

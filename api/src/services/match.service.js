@@ -53,6 +53,15 @@ const createMatch = async (matchBody) => {
  */
 const queryMatchs = async (filter, options) => {
   options.populate = 'guest.Team,host.Team';
+  if(filter.teamId && filter.teamId.length) {
+    filter['$or'] = [{
+      guest: mongoose.Types.ObjectId(filter.teamId)
+    }, {
+      host: mongoose.Types.ObjectId(filter.teamId)
+    }];
+    delete filter.teamId;
+  }
+  console.log(filter, options)
   const matchs = await Match.paginate(filter, options);
   return matchs;
 };
