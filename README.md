@@ -26,6 +26,7 @@ The main objective of this project is to develop a score management application 
 ### Prerequisites
 
 - Ensure you have [Node.js and npm](https://nodejs.org/en/download) installed on your computer.
+- Make sure you have [mongo DB](https://www.mongodb.com/docs/manual/administration/install-community/) installed on your computer
 - A code editor (For example Visual Studio Code, Sublime Text etc.)
 - Git installed on your local machine
 
@@ -41,6 +42,7 @@ The main objective of this project is to develop a score management application 
     ```
     cd api/ & npm install
     ```
+    Then rename the .env.example file that is locate in the /api directory to .env
 3. Navigate to the frontend directory and use npm to install dependencies
     ```
     cd frontend/ & npm install 
@@ -48,9 +50,13 @@ The main objective of this project is to develop a score management application 
 
 ### Usage
 
-1. Use the following command to start the dev server
+1. Use the followinsg command to start the dev server
     ```
-    npm run dev
+    cd api / & npm run dev
+    ```
+    
+   ```
+    cd frontend / & npm run dev
     ```
 2. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
     http://localhost:3000/
