@@ -72,6 +72,6 @@ The main objective of this project is to develop a score management application 
    ```
 3. Once the node.js server and vue.js dev server are running, you can access your app by opening this link in your browser 
     http://localhost:3000/
-Note : Admin Credentials
+### Note : Admin Credentials
        Email : admin@admin.com
        Password : Admin1234.
