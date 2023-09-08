@@ -26,7 +26,7 @@
 
 			<v-spacer />
 
-			<template v-if="$auth.loggedIn">
+			<template v-if="$auth.user">
 				<v-toolbar-items>
 					<v-menu offset-y>
 						<template #activator="{ on, attrs }">
@@ -43,12 +43,21 @@
 									/>
 								</v-avatar>
 
-								{{ $auth.user.firstname }} {{ $auth.user.lastname }}
+								{{ $auth.user.name }}
 							</v-btn>
 						</template>
 					</v-menu>
 				</v-toolbar-items>
 			</template>
+
+			<v-btn
+        		v-else
+                    color="blue darken-1"
+                    text
+                    @click="$router.push('/auth/login')"
+                    >
+                    Auth
+                    </v-btn>
 		</v-app-bar>
 
 		<v-main>

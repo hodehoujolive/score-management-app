@@ -6,7 +6,7 @@
 					Teams
 				</h1>
 
-				<CreateTeam />
+				<CreateTeam v-if="$auth.user" />
 			</div>
 			<div>
 				<v-simple-table>

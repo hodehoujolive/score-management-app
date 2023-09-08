@@ -1,19 +1,13 @@
 <template>
 	<v-container fill-height fluid>
 		<v-row align="center" justify="center">
-			<v-col cols="12" lg="3">
+			<v-col cols="12" lg="8">
 
 				<v-form :disabled="form.loading" @submit.prevent="save">
 					<v-card flat>
-						<v-card-title>Game</v-card-title>
+						<v-card-title>Match</v-card-title>
 
 						<v-card-text>
-							<!-- <v-alert
-								v-if="form.errors && form.errors.has('error')"
-								type="error"
-								dismissible
-								>{{ form.errors.get('error') }}</v-alert
-							> -->
 
 							<v-select
 							v-model="form.data.host"

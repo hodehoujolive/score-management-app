@@ -10,9 +10,11 @@ export default {
 		local: {
 			endpoints: {
 				login: { url: 'auth/login', method: 'post', propertyName: 'tokens.access' },
-				user: { url: 'me', method: 'get', propertyName: 'data' },
+				user: { url: 'auth/me', method: 'get', propertyName: 'user' },
 				logout: false
-			}
+			},
+			tokenRequired: true,
+			tokenType: 'jwt'
 		}
 	},
 }

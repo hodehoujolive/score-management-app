@@ -20,6 +20,9 @@
           <th class="text-left">
             Points
           </th>
+          <th class="text-left">
+            Partager sur ...
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +33,28 @@
           <td>{{ i + 1 }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.points }}</td>
+          <td>
+              <v-btn 
+                v-for="network in networks"
+                x-small
+                class="mx-2"
+                :key="network.network"
+                color="white"
+                :style="{backgroundColor: network.color}"
+              >
+              <ShareNetwork
+                :network="network.network"
+                :url="sharing.url"
+                :title="sharing.title"
+                :description="sharing.description"
+                :quote="sharing.quote"
+                :hashtags="sharing.hashtags"
+                :twitterUser="sharing.twitterUser"
+              >
+                <span>{{ network.name }}</span>
+              </ShareNetwork>
+            </v-btn>
+          </td>
         </tr>
       </tbody>
     </template>
@@ -45,7 +70,24 @@ export default {
 	layout: 'dashboard',
 	data () {
 		return {
-        teams: []
+        teams: [],
+        interval: null,
+        sharing: {
+          url: 'https://score-management-app/leaderboard',
+          title: 'Découvrez le leaderboard et les scores des matchs en cours et passés.',
+          description: 'Découvrez le premier du classement et les scores des différents matchs sur notre leaderboard dès maintenant.',
+          hashtags: 'score,app',
+          twitterUser: 'youyuxi'
+        },
+        networks: [
+          { network: 'email', name: 'Email', icon: 'far fah fa-lg fa-envelope', color: '#333333' },
+          { network: 'facebook', name: 'Facebook', icon: 'fab fah fa-lg fa-facebook-f', color: '#1877f2' },
+          { network: 'linkedin', name: 'LinkedIn', icon: 'fab fah fa-lg fa-linkedin', color: '#007bb5' },
+          { network: 'messenger', name: 'Messenger', icon: 'fab fah fa-lg fa-facebook-messenger', color: '#0084ff' },
+          { network: 'telegram', name: 'Telegram', icon: 'fab fah fa-lg fa-telegram-plane', color: '#0088cc' },
+          { network: 'twitter', name: 'Twitter', icon: 'fab fah fa-lg fa-twitter', color: '#1da1f2' },
+          { network: 'whatsapp', name: 'Whatsapp', icon: 'fab fah fa-lg fa-whatsapp', color: '#25d366' },
+        ]
       }
     },
     async fetch() {
@@ -62,7 +104,7 @@ export default {
 		},
 	}),
     mounted() {
-      setInterval(async () => {
+      this.interval = setInterval(async () => {
         try {
             const teams = await this.$axios.get('/teams/leaderboard');
             this.teams = teams.data.results;
@@ -70,6 +112,9 @@ export default {
 			    console.log(error)
         }
       }, 10000)
+    },
+    beforeDestroy () {
+      clearInterval(this.interval)
     },
 	fetchOnServer: false
 }

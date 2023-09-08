@@ -9,6 +9,7 @@
 						<v-card-subtitle
 							>Get access to your account.</v-card-subtitle
 						>
+						{{ $auth.user }}
 
 						<v-card-text>
 							<v-alert
@@ -88,18 +89,20 @@ export default {
 	},
 
 	methods: {
-		userLogin() {
+		async userLogin() {
+			try {
 			this.loadingStart()
 
-			this.$auth
+			const res = await this.$auth
 				.loginWith('local', {
 					data: this.form.data,
 				})
-				.catch((err) => {
-					console.log(err)
-					this.form.errors.record(err.response.data)
-					this.loadingStop()
-				})
+				this.$auth.setUser(res.data.user);
+				this.$router.push('/leaderboard')
+			} catch(err) {
+				this.form.errors.record(err.response.data)
+				this.loadingStop()
+			}
 		},
 
 		loadingStart() {

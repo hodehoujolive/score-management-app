@@ -6,7 +6,14 @@
 					Matchs Details
 				</h1>
 
-				<CreateTeam />
+				<v-btn
+        v-if="$auth.user"
+                    color="blue darken-1"
+                    text
+                    @click="$router.push('/matchs/create')"
+                    >
+                    Create Match
+                    </v-btn>
 			</div>
 			<div>
 				<v-simple-table>
