@@ -8,7 +8,7 @@
 
 				<CreateTeam v-if="$auth.user" />
 			</div>
-      <div class="d-flex justify-space-between">
+      <!-- <div class="d-flex justify-space-between">
         <h1></h1>
         <div>
           <v-btn @click="exportData(exportFromJSON.types.csv)">
@@ -21,7 +21,7 @@
             Export HTML
           </v-btn>
         </div>
-			</div>
+			</div> -->
 			<div>
 				<v-simple-table>
     <template #default>

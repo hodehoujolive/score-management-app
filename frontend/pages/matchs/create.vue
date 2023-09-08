@@ -116,7 +116,7 @@ export default {
 				this.loadingStart();
 				const teams = await this.$axios.post('/matchs', this.form.data);
 				this.teams = teams.data.results;
-				this.$router.push('/leaderboard')
+				this.$router.push('/')
 			} catch (err) {
 				this.form.errors.record(err.response.data)
 				
