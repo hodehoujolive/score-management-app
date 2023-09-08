@@ -122,7 +122,7 @@
         async save () {
             try {
                 await this.$axios.post('/teams', this.form);
-                this.$fetch();
+                this.$nuxt.refresh()
             } catch (error) {
                 console.log(error)
             }

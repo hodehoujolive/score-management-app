@@ -10,7 +10,7 @@ const createMatch = catchAsync(async (req, res) => {
 });
 
 const getMatchs = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'matchMembers']);
+  const filter = pick(req.query, ['teamId']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await matchService.queryMatchs(filter, options);
   res.send(result);
